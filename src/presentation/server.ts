@@ -1,4 +1,5 @@
 import CronService = require("./cron/cron-service");
+import CheckService = require("./domain/use-cases/checks/check-service");
 
 class Server {
 
@@ -9,8 +10,11 @@ class Server {
         CronService.createJob(
             '*/5 * * * * *',
             () => {
-                const date =new Date();
-                console.log('5 second', date);
+                const url = 'https://www.google.com.ar'
+                new CheckService(
+                    () => console.log( 'success' ),
+                    ( error ) => console.log( error )
+                ).execute( url )
             }
         )
     }
