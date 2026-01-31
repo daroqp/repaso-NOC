@@ -1,4 +1,4 @@
-import CronJob = require("cron");
+import CronService = require("./cron/cron-service");
 
 class Server {
 
@@ -6,15 +6,13 @@ class Server {
 
         console.log("Server started...");
 
-        const job = new CronJob.CronJob(
-            '*/2 * * * * *',
+        CronService.createJob(
+            '*/5 * * * * *',
             () => {
-                const date = new Date();
-                console.log('2 second', date);
-            },
-        );
-
-        job.start()
+                const date =new Date();
+                console.log('5 second', date);
+            }
+        )
     }
 }
 
