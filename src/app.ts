@@ -1,3 +1,9 @@
+import Server = require("./presentation/server");
 
-console.log("Dettmann");
+(async() => {
+    main();
+})();
 
+function main() {
+    Server.start();
+}
