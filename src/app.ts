@@ -1,4 +1,4 @@
-import Server = require("./presentation/server");
+import { Server } from "./presentation/server.js";
 
 (async() => {
     main();

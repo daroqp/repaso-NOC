@@ -1,5 +1,5 @@
-import { CheckService } from "../domain/use-cases/checks/check-service";
-import { CronService } from "./cron/cron-service"
+import { CheckService } from "../domain/use-cases/checks/check-service.js";
+import { CronService } from "./cron/cron-service.js"
 
 export class Server {
 
