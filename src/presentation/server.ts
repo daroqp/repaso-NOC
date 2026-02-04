@@ -1,7 +1,7 @@
-import CronService = require("./cron/cron-service");
-import CheckService = require("./domain/use-cases/checks/check-service");
+import { CheckService } from "../domain/use-cases/checks/check-service";
+import { CronService } from "./cron/cron-service"
 
-class Server {
+export class Server {
 
     public static start(){
 
@@ -10,14 +10,12 @@ class Server {
         CronService.createJob(
             '*/5 * * * * *',
             () => {
-                const url = 'https://www.google.com.ar'
+                const url = 'https://www.google.com.ar';
                 new CheckService(
                     () => console.log( 'success' ),
-                    ( error ) => console.log( error )
+                    ( error: string ) => console.log( error )
                 ).execute( url )
             }
         )
     }
 }
-
-export = Server

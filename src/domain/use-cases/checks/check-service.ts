@@ -5,7 +5,7 @@ interface CheckServiceUseCase {
 type SuccessCallback = () => void;
 type ErrorCallback = (error: string) => void;
 
-class CheckService implements CheckServiceUseCase {
+export class CheckService implements CheckServiceUseCase {
 
     constructor(
         private readonly successCallback: SuccessCallback,
@@ -34,5 +34,3 @@ class CheckService implements CheckServiceUseCase {
 
     }
 }
-
-export = CheckService

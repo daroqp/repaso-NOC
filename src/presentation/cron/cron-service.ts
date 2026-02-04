@@ -1,18 +1,16 @@
-import CronJob = require("cron");
+import { CronJob } from "cron";
 
 type CronTime = string | Date;
 type OnTick = () => void;
 
-class CronService {
+export class CronService {
 
     static createJob(cronTime: CronTime, onTick: OnTick) {
 
-        const job = new CronJob.CronJob( cronTime, onTick );
+        const job = new CronJob( cronTime, onTick );
 
         job.start();
 
         return job;
     }
 }
-
-export = CronService
